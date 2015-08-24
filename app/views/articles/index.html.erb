@@ -1,3 +1,4 @@
+<div class="content_top">  
   <div class="beforewrap">
     <div class="title">
       <div class="pannelleft00">
@@ -14,50 +15,37 @@
       <%= image_tag 'header.png', :width => '100%', :height => '100%' %>
     </div>
 
-    <div id="nav">
-      <div id="aboutus">
-        <a href="#">about us</a>
-      </div>
-      <div id="article">
-        <a href="Rew-generation-allarticle.html">article</a>
-      </div>
-      <div id="contact">
-        <a href="#">contact</a>
-      </div>
+    <div class="articlewrap">
+        <div id="nav_show">
+            <div><%= image_tag 'nav.png', :width => '100%', :height => '100%' %></div>
+            <div id="aboutus">
+                <a href="#"><%= image_tag 'abus.png', :width => '100%', :height => '100%' %></a>
+            </div>
+            <div id="article">
+                <a href="Rew-generation-allarticle.html"><%= image_tag 'article.png', :width => '100%', :height => '100%' %></a>
+            </div>
+            <div id="contact">
+                <a href="#"><%= image_tag 'con.png', :width => '100%', :height => '100%' %></a>
+            </div>
+        </div>
     </div>
 
-
     <div id="pickup">
-    <ul>
-      <li class="pickup">
-        <a href="Rew-generation-article.html">
-          <%= image_tag 'trip04.jpg', :width => '100%', :height => '100%' %>
-          <figcaption>
-            <h3>旅行者必見！時差ボケにならない「5つのコツ」。</h3>
-            <p>昼間が眠くなり楽しめず、夜に目が覚めて眠れずに辛い思いをする。特にトラベル歴が長い人は、時差ボケで苦しんだ経験も多いはず。ここでは、そんな時差ボケを克服するための5つのコツを、YouTubeチャンネル「AsapTHOUGHT」に掲載された動画から紹介。</p>
-          </figcaption>
-        </a>
-      </li>
-      <li class="pickup">
-        <a href="Rew-generation-article.html">
-          <%= image_tag 'trip05.jpg', :width => '100%', :height => '100%' %>
-          <figcaption>
-            <h3>旅行者必見！時差ボケにならない「5つのコツ」。</h3>
-            <p>昼間が眠くなり楽しめず、夜に目が覚めて眠れずに辛い思いをする。特にトラベル歴が長い人は、時差ボケで苦しんだ経験も多いはず。ここでは、そんな時差ボケを克服するための5つのコツを、YouTubeチャンネル「AsapTHOUGHT」に掲載された動画から紹介。</p>
-          </figcaption>
-        </a>
-      </li>
-      <li class="pickup">
-        <a href="Rew-generation-article.html">
-          <%= image_tag 'trip04.jpg', :width => '100%', :height => '100%' %>
-          <figcaption>
-            <h3>旅行者必見！時差ボケにならない「5つのコツ」。</h3>
-            <p>昼間が眠くなり楽しめず、夜に目が覚めて眠れずに辛い思いをする。特にトラベル歴が長い人は、時差ボケで苦しんだ経験も多いはず。ここでは、そんな時差ボケを克服するための5つのコツを、YouTubeチャンネル「AsapTHOUGHT」に掲載された動画から紹介。</p>
-          </figcaption>
-        </a>
-      </li>
-
-    </ul>
+      <ul>
+        <% @articles.each_with_index do |article, i| %>
+        <li class="pickup">
+          <a href="Rew-generation-article.html">
+            <div>
+              <div><%= image_tag article.photo1, :width => '100%', :height => '100%' %></div>
+            </div>
+            <figcaption>
+              <h3><%= article.title %></h3>
+              <p><%= article.summary %></p>
+            </figcaption>
+          </a>
+        </li>
+        <% end %>
+      </ul>
     </div>
 
 
@@ -80,47 +68,73 @@
     </div>
 
 
-      <div id="newtop">
-        <div id="newmain">
-          <div class="toparticletitle">
-            <div class="topborderleft">
-            </div>
-            <div class="newnoborder">
-              <h2>NEW ARTICLE</h2>
-            </div>
-            <div class="topborderright">
-            </div>
+    <div id="newtop">
+      <div id="newmain">
+
+        <div class="toparticletitle">
+          <div class="topborderleft">
           </div>
-
-        <% @articles.each_with_index do |article, i| %>
-        <div class="col-4">
-          <div class="newcontents">
-            <a href="/articles/<%= article.id %>">
-              <div class="topcontentsimg">
-                <%= image_tag article.photo1, :width => '100%', :height => '100%' %>
-              </div>
-              <div class="topcontentsex">
-                <h3><%= article.title %></h3>
-
-                <p><%= i %>aaaaaaaaaaaaa</p>
-
-                <p class="topwriter"><%= article.para1 %></p>
-                <p class="topdate">Jul.17.2015</p>
-              </div>
-              <div class="left">
-              </div>
-              <div class="right">
-              </div>
-              <div class="cover">
-              </div>
-              <p class="more">READ MORE</p>
-            </a>
+          <div class="newnoborder">
+            <h2>NEW ARTICLE</h2>
           </div>
-
-
+          <div class="topborderright">
+          </div>
         </div>
-        <% end %>
 
+
+<!--         <div style="width: 47%;  height: 40%;">   
+ -->
+          <% @articles.each_with_index do |article, i| %>
+            <% if i%2 == 0 %>
+              <div class="newcontents">
+                <a href="/articles/<%= article.id %>">
+                  <div class="topcontentsimg">
+                    <div><%= image_tag article.photo1, :width => '78%', :height => '40%' %>
+                    </div>
+                  </div>
+                  <div class="topcontentsex">
+                    <h3><%= article.title %></h3>
+                    <p class="topdate">Jul.17.2015</p>
+                  </div>
+                  <div class="left">
+                  </div>
+                  <div class="right">
+                  </div>
+                  <div class="cover">
+                  </div>
+                  <p class="more">READ MORE</p>
+                </a>
+              </div>
+            <% end %>
+          <% end %>
+
+<!--         </div>
+
+        <div style="width: 47%;  height: 40%; margin-left: 54%;"> -->
+
+          <% @articles.each_with_index do |article, i| %>
+            <% if i%2 == 1 %>
+              <div class="newcontents_right">
+                <a href="/articles/<%= article.id %>">
+                  <div class="topcontentsimg">
+                    <%= image_tag article.photo1, :width => '100%', :height => '100%' %>
+                  </div>
+                  <div class="topcontentsex">
+                    <h3><%= article.title %></h3>
+                    <p class="topdate">Jul.17.2015</p>
+                  </div>
+                  <div class="left">
+                  </div>
+                  <div class="right">
+                  </div>
+                  <div class="cover">
+                  </div>
+                  <p class="more">READ MORE</p>
+                </a>
+              </div>
+            <% end %>
+          <% end %>
+        <!-- </div> -->
               
 
         <div class="toparticlenext">
@@ -134,57 +148,58 @@
           <div class="btnborderright">
           </div>
         </div>
-        </div>
+      </div>
     </div>
 
     <div class="sidebar">
-        <div class="twitterbar">
-          <a href="#">
-            <%= image_tag 'twitter.jpg', :width => '100%', :height => '100%' %>
-          </a>
-        </div>
-        <div class="facebookbar">
-          <a href="#">
-            <%= image_tag 'facebook.jpg', :width => '100%', :height => '100%' %>
-          </a>
-        </div>
-        <div class="googlebar">
-          <a href="#">
-            <%= image_tag 'google.jpg', :width => '100%', :height => '100%' %>
-          </a>
-        </div>
-
+      <div class="twitterbar">
+        <a href="#">
+          <%= image_tag 'twitter.jpg', :width => '100%', :height => '100%' %>
+        </a>
       </div>
+      <div class="facebookbar">
+        <a href="#">
+          <%= image_tag 'facebook.jpg', :width => '100%', :height => '100%' %>
+        </a>
+      </div>
+      <div class="googlebar">
+        <a href="#">
+          <%= image_tag 'google.jpg', :width => '100%', :height => '100%' %>
+        </a>
+      </div>
+    </div>
 
-      <footer>
+
+    <footer>
       <%= image_tag 'footer.png', :width => '100%', :height => '100%' %>
-        <div class="what">
-          <a href="#">
-            <div id="what">
-              <%= image_tag 'what.png', :width => '100%', :height => '100%' %>
-            </div>
-          </a>
-        </div>
-        <div class="team">
-          <a href="#">
-            <div id="team">
-              <%= image_tag 'team.png', :width => '100%', :height => '100%' %>
-            </div>
-          </a>
-        </div>
-        <div class="e-mail">
-          <a href="#">
-            <div id="e-mail">
-              <%= image_tag 'e-mail.png', :width => '100%', :height => '100%' %>
-            </div>
-          </a>
-        </div>
+      <div class="what">
+        <a href="#">
+          <div id="what">
+            <%= image_tag 'what.png', :width => '100%', :height => '100%' %>
+          </div>
+        </a>
+      </div>
+      <div class="team">
+        <a href="#">
+          <div id="team">
+            <%= image_tag 'team.png', :width => '100%', :height => '100%' %>
+          </div>
+        </a>
+      </div>
+      <div class="e-mail">
+        <a href="#">
+          <div id="e-mail">
+            <%= image_tag 'e-mail.png', :width => '100%', :height => '100%' %>
+          </div>
+        </a>
+      </div>
     </footer>
   </div>
 
 
 
-<br><br><br><br><br><br>
-
+<!-- <br><br><br><br><br><br>
+ -->
 <br>
 
+</div> <!-- End of the content_top -->

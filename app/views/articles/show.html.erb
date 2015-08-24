@@ -1,9 +1,10 @@
+<div class="content_show">
     <div class="articlewrap">
         <div class="top_show">
             <p>Rew-generation<span>ー留学のその先を伝えるメディアー</span></p>
         </div>
-        <div id="nav">
-            <%= image_tag 'nav.png', :width => '100%', :height => '100%' %>
+        <div id="nav_show">
+            <div><%= image_tag 'nav.png', :width => '100%', :height => '100%' %></div>
             <div id="aboutus">
                 <a href="#"><%= image_tag 'abus.png', :width => '100%', :height => '100%' %></a>
             </div>
@@ -70,45 +71,19 @@
                     </div>
                     <div class="divide">
                     </div>
-                    <div class="related">
-                        <h2>RELATED</h2>
+
+
+                    <% @articles.each_with_index do |article, i| %>
                         <div class="relatedarticle">
                             <a href="#">
-                                <div class="subimg">
-                                    <img src="images/trip5.jpg">
-                                </div>
+                                    <%= image_tag article.photo1, :width => '100%', :height => '100%' %>
                                 <p class="subtime">2015.07.26.Sun</p>
-                                <p class="subrelate"><strong>旅行者必見！時差ぼけにならない５つのコツ</strong></p>
+                                <p class="subrelate"><strong><%= article.title %></strong></p>
                             </a>
                         </div>
-                        <div class="relatedarticle">
-                            <a href="#">
-                                <div class="subimg">
-                                    <img src="images/trip5.jpg">
-                                </div>
-                                <p class="subtime">2015.07.26.Sun</p>
-                                <p class="subrelate"><strong>旅行者必見！時差ぼけにならない５つのコツ</strong></p>
-                            </a>
-                        </div>
-                        <div class="relatedarticle">
-                            <a href="#" style="text-decorarion:none;">
-                                <div class="subimg">
-                                    <img src="images/trip5.jpg">
-                                </div>
-                                <p class="subtime">2015.07.26.Sun</p>
-                                <p class="subrelate"><strong>旅行者必見！時差ぼけにならない５つのコツ</strong></p>
-                            </a>
-                        </div>
-                        <div class="relatedarticle">
-                            <a href="#" style="text-decorarion:none;">
-                                <div class="subimg">
-                                    <img src="images/trip5.jpg">
-                                </div>      
-                                <p class="subtime">2015.07.26.Sun</p>
-                                <p class="subrelate"><strong>旅行者必見！時差ぼけにならない５つのコツ</strong></p>
-                            </a>
-                        </div>
-                    </div>
+                    <% end %>
+
+
                     <div class="divide">
                     </div>
                 </div>
@@ -131,7 +106,7 @@
                     <%= image_tag 'google.jpg', :width => '100%', :height => '100%' %>
                 </a>
             </div>
-            <div id="recommendbar_show">
+<!--             <div id="recommendbar_show">
                 <h2>PICK UP</h2>
                 <div class="pickup_show">
                     <a href="#">
@@ -164,29 +139,29 @@
                     </a>
                 </div>
                 <a href="#"><p>MORE</p></a>
-            </div>
+            </div> -->
         </div>
         
         <footer>
-            <img src="images/footer.png">
+            <%= image_tag 'footer.png', :width => '100%', :height => '100%' %>
                 <div class="what">
                     <a href="#">
                         <div id="what">
-                            <img src="images/what.png">
+                            <%= image_tag 'what.png', :width => '100%', :height => '100%' %>
                         </div>
                     </a>
                 </div>
                 <div class="team">
                     <a href="#">
                         <div id="team">
-                            <img src="images/team.png">
+                            <%= image_tag 'team.png', :width => '100%', :height => '100%' %>
                         </div>
                     </a>
                 </div>
                 <div class="e-mail">
                     <a href="#">
                         <div id="e-mail">
-                            <img src="images/e-mail.png">
+                            <%= image_tag 'e-mail.png', :width => '100%', :height => '100%' %>
                         </div>
                     </a>
                 </div>
@@ -202,3 +177,6 @@
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+
+</div> <!-- End of the content_show -->

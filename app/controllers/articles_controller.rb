@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @articles_oneline = Article.find(params[:id])
+    @articles = Article.all
   end
 
   # GET /articles/new

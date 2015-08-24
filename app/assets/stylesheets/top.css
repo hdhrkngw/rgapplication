@@ -1,13 +1,29 @@
 body {
 	margin: 0%;
 	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Osaka,sans-serif;
+/*	background-color: #f3f3f3;
+*/}
+
+.thumbimg {
+	overflow: hidden;
+}
+
+.content_top {
+	background-color: #fff;
+/*	width: 1130px;
+	margin: 0 auto;*/
+}
+
+.content_show {
 	background-color: #f3f3f3;
+	height: 100%;
 }
 
 .wrap {
-	width: 100%;
+	width: 1000px;
 	height:650px;
 	display: none;
+	margin: 0 auto;
 }
 
 .top {
@@ -50,6 +66,15 @@ body {
 	background-color: white;
 }*/
 
+#nav_show {
+	width: 100%;
+	height: 60%;
+	border-top: 4px solid black;
+	border-bottom: 4px solid black;
+	position: relative;
+	background-color: white;
+}
+
 #aboutus {
 /*	width: 10%;
 	height: 30px;
@@ -60,6 +85,7 @@ body {
 	background-color: white;*/
 	position: absolute;
 	width: 31.6%;
+	height: 86%;
 	top: 0;
 	left: 0;
 	opacity: 0;
@@ -79,6 +105,7 @@ body {
 	float: left;*/
 	position: absolute;
 	width: 35.7%;
+	height: 86%;
 	top: 0;
 	left: 30.3%;
 	opacity: 0;
@@ -94,6 +121,7 @@ body {
 	float: left;*/
 	position: absolute;
 	width: 35.5%;
+	height: 86%;
 	top: 0;
 	right: 0;
 	opacity: 0;
@@ -158,7 +186,7 @@ body {
 .toparticletitle {
 	width: 100%;
 	height: 10%;
-	margin-bottom: 3%;
+	margin-bottom: 5%;
 	position: relative;
 }
 
@@ -212,7 +240,8 @@ body {
 .toparticlenext {
 	width: 100%;
 	height: 10%;
-	margin-top: 3%;
+	top: 170%;
+	bottom: 0%;
 	position: relative;
 }
 
@@ -392,7 +421,7 @@ body {
 
 .topcontentsimg {
 	width: 100%;
-	height: 50%;
+	height: 60%;
 	position: relative;
 	overflow: hidden;
 }
@@ -405,8 +434,8 @@ body {
 
 .topcontentsex {
 	width: 94%;
-	height: 40%;
-	padding: 10% 3% 0% 3%;
+	height: 60%;
+	padding: 5% 3% 0% 3%;
 	background-color: white;
 }
 
@@ -434,6 +463,7 @@ body {
 	font-size: 14px;
 	margin: 0;
 	color: black;
+	margin-top: 20%;
 }
 
 #newtop {
@@ -476,19 +506,27 @@ body {
 }
 
 .col-4 {
-	width: 100%;
+	width: 50%;
 	height: 40%;
-	margin-bottom: 8%;
+	/*margin-bottom: 8%;*/
 }
 
 .col-4:nth-child(6) {
 	margin-bottom: 0;
 }
 
+.col-4_right {
+	width: 50%;
+	height: 40%;
+	margin-bottom: 8%;
+	left: 50%;	
+}
+
 .newcontents {
-	width: 46%;
-	height: 100%;
+	width: 47%;
+	height: 47%;
 	margin-right: 6%;
+	margin-bottom: 8%;
 	float: left;
 	position: relative;
 	overflow: hidden;
@@ -523,16 +561,16 @@ body {
 
 
 .newcontents_right {
-	width: 46%;
-	height: 100%;
+	width: 47%;
+	height: 47%;
+	left: 55%;
+	top: -164%;
+	margin-right: 6%;
+	margin-bottom: 8%;
 	float: left;
 	position: relative;
 	overflow: hidden;
 	border: 2px solid;
-}
-
-.newcontents_right:nth-child(2) {
-	margin-right: 0%;
 }
 
 .newcontents_right a {
@@ -734,7 +772,7 @@ body {
 
 figcaption {
 	position: absolute;
-	top: 80%;
+	top: 63%;
 	left: 0;
 	z-index: 2;
 	width: 100%;
@@ -779,7 +817,7 @@ footer {
 	position: relative;
 	float: left;
 	background-color: white;
-	top: 150%;
+	top: 90%;
 }
 
 footer img {
