@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   def show
     @articles_oneline = Article.find(params[:id])
     @articles = Article.all
+    @articles_topthree = Article.order("id DESC").limit(3)
   end
 
   # GET /articles/new
@@ -71,6 +72,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :para1, :para2, :photo)
+      params.require(:article).permit(:title, :para1, :para2, :para3, :para4, :para5, :photo_top)
     end
 end

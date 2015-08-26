@@ -1,7 +1,7 @@
 <div class="content_show">
     <div class="articlewrap">
         <div class="top_show">
-            <p>Rew-generation<span>ー留学のその先を伝えるメディアー</span></p>
+            <p>Rew-generation<span> ー留学のその先を伝えるメディアー</span></p>
         </div>
         <div id="nav_show">
             <div><%= image_tag 'nav.png', :width => '100%', :height => '100%' %></div>
@@ -24,7 +24,7 @@
                         <p class="updatetime"><%= @article.updated_at %>, <%= @article.created_at %></p>
                         <h1><%= @article.title %></h1>
                     </div>
-                    <div class="mainimage"><%= image_tag @article.photo1, :width => '80%', :height => '80%' %></div>
+                    <div class="mainimage"><%= image_tag @article.photo_top, :width => '80%', :height => '80%' %></div>
                     <div class="snsbox">
                         <div class="snsfb">
                         </div>
@@ -39,27 +39,35 @@
                         <div class="sideline">
                         </div>
 
+                        <% if @article.subtitle1.empty? == false %>
                         <h2><span>01.</span><%= @article.subtitle1 %></h2>
-                        <div class="mainimage"><%= image_tag @article.photo2, :width => '80%', :height => '80%' %></div>
-                        <p><%= @article.para1 %></p><br>
-
-                        
-                        <h2><span>02.</span><%= @article.subtitle2 %></h2>
-                        <div class="mainimage"><%= image_tag @article.photo3, :width => '80%', :height => '80%' %></div>
-                        <p><%= @article.para2 %></p><br>
-
-                        <h2><span>03.</span><%= @article.subtitle3 %></h2>
-                        <div class="mainimage"><%= image_tag @article.photo4, :width => '80%', :height => '80%' %></div>
-                        <p><%= @article.para3 %></p><br>
-
-                        <% if @article.subtitle5 %>
-                        <h2><span>04.</span><%= @article.subtitle4 %></h2>
-                        <div class="mainimage"><%= image_tag @article.photo5, :width => '80%', :height => '80%' %></div>
-                        <p><%= @article.para4 %></p>
+                        <div class="mainimage"><%= image_tag @article.photo1, :width => '80%', :height => '80%' %></div>
+                        <p><%= simple_format(@article.para1) %></p><br>
                         <% end %>
 
-                        <h2><%= @article.subtitle5 %></h2>
-                        <p><%= @article.para5 %></p>
+                        <% if @article.subtitle2.empty? == false %>
+                        <h2><span>02.</span><%= @article.subtitle2 %></h2>
+                        <div class="mainimage"><%= image_tag @article.photo2, :width => '80%', :height => '80%' %></div>
+                        <p><%= simple_format(@article.para2) %></p><br>
+                        <% end %>
+
+                        <% if @article.subtitle3.empty? == false %>
+                        <h2><span>03.</span><%= @article.subtitle3 %></h2>
+                        <div class="mainimage"><%= image_tag @article.photo3, :width => '80%', :height => '80%' %></div>
+                        <p><%= simple_format(@article.para3) %></p><br>
+                        <% end %>
+
+                        <% if @article.subtitle4.empty? == false %>
+                        <h2><span>04.</span><%= @article.subtitle4 %></h2>
+                        <div class="mainimage"><%= image_tag @article.photo4, :width => '80%', :height => '80%' %></div>
+                        <p><%= simple_format(@article.para4) %></p>
+                        <% end %>
+
+                        <% if @article.subtitle5.empty? == false %>
+                        <h2><span>05.</span><%= @article.subtitle5 %></h2>
+                        <div class="mainimage"><%= image_tag @article.photo5, :width => '80%', :height => '80%' %></div>
+                        <p><%= simple_format(@article.para5) %></p>
+                        <% end %>
 
 
                     </div>
@@ -73,7 +81,7 @@
                     </div>
 
 
-                    <% @articles.each_with_index do |article, i| %>
+                    <% @articles_topthree.each_with_index do |article, i| %>
                         <div class="relatedarticle">
                             <a href="#">
                                     <%= image_tag article.photo1, :width => '100%', :height => '100%' %>
@@ -168,15 +176,6 @@
         </footer>
     </div>
 
-    
-</body>
-
-
-
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
 
 
 </div> <!-- End of the content_show -->

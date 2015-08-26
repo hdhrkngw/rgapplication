@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails_admin'
 gem "paperclip"
+gem 'jquery-ui-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -29,7 +29,13 @@ class Article < ActiveRecord::Base
 	# ファイルの拡張子を指定（これがないとエラーが発生する）
 	validates_attachment :photo5, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
+		# photoをattachファイルとする。stylesで画像サイズを定義できる
+	has_attached_file :photo_top, styles: { medium: "300x300>", thumb: "100x100>" }
 
+	# ファイルの拡張子を指定（これがないとエラーが発生する）
+	validates_attachment :photo_top, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
+	time = Article.find(1)
 
 
 end
