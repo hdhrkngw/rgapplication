@@ -1,7 +1,7 @@
 <div class="content_show">
     <div class="articlewrap">
         <div class="top_show">
-            <p>Rew-generation<span> ー留学のその先を伝えるメディアー</span></p>
+            <p><a href="#">Rew-generation<span> ー留学のその先を伝えるメディアー</span></a></p>
         </div>
         <div id="nav_show">
             <div><%= image_tag 'nav.png', :width => '100%', :height => '100%' %></div>
@@ -83,7 +83,7 @@
 
                     <% @articles_topthree.each_with_index do |article, i| %>
                         <div class="relatedarticle">
-                            <a href="#">
+                            <a href="/articles/<%= article.id %>">
                                     <%= image_tag article.photo1, :width => '100%', :height => '100%' %>
                                 <p class="subtime">2015.07.26.Sun</p>
                                 <p class="subrelate"><strong><%= article.title %></strong></p>
@@ -150,6 +150,7 @@
             </div> -->
         </div>
         
+        <div class="footer">
         <footer>
             <%= image_tag 'footer.png', :width => '100%', :height => '100%' %>
                 <div class="what">
@@ -174,8 +175,14 @@
                     </a>
                 </div>
         </footer>
+        </div>
     </div>
 
+
+<script>
+    var heightmain = $("#articletop").height();
+    $("div.content_show").css("height", heightmain+300);
+</script>
 
 
 </div> <!-- End of the content_show -->

@@ -267,6 +267,11 @@ body {
 	float: left;
 }
 
+/*.relatedarticle a p {
+	color: black;
+	text-decoration: none;
+}*/
+
 .relatedarticle a:hover .subtime {
 	color: #a381d1;
 }
@@ -307,6 +312,7 @@ body {
 	margin-top: 0;
 	margin-bottom: 0;
 	color: black;
+	text-decoration: none;
 	transition: 0.3s;
 }
 
