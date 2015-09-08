@@ -7,6 +7,10 @@ set :repo_url, 'https://github.com/hdhrkngw/rgapplication.git'
 set deploy_to, '/var/www/rgapplication'
 set :scm, :git
 
+set :format, :pretty
+set :log_level, :debug
+set :pty, true
+
 set :keep_releases, 5
 
 set :default_env, {
