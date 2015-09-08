@@ -8,8 +8,8 @@ set deploy_to, '/var/www/rgapplication'
 set :scm, :git
 
 set :format, :pretty
-#set :log_level, :debug
-#set :pty, true
+set :log_level, :debug
+set :pty, true
 
 set :keep_releases, 5
 
