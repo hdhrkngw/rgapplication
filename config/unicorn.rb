@@ -2,8 +2,8 @@
 worker_processes 2
 timeout 15
 
-listen  "160.16.108.158"
-pid     "tmp/unicorn.pid"
+listen  "160.16.108.158:3000"
+pid     "tmp/pids/unicorn.pid"
 
 ROOT = File.dirname(File.dirname(__FILE__))
 stdout_path "#{ROOT}/log/unicorn-stdout.log"
