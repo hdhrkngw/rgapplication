@@ -5,6 +5,9 @@ gem "paperclip"
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
+group :production do
+	gem 'unicorn'
+end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
