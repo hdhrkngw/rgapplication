@@ -4,9 +4,11 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{hidehiro@160.16.108.158}
-role :web, %w{hidehiro@160.16.108.158}
-role :db,  %w{hidehiro@160.16.108.158}
+role :app, %w{root@160.16.108.158}
+role :web, %w{root@160.16.108.158}
+role :db,  %w{root@160.16.108.158}
+
+set :rails_env, :production
 
 # Extended Server Syntax
 # ======================
@@ -29,10 +31,10 @@ role :db,  %w{hidehiro@160.16.108.158}
 # and/or per server
 
 server '160.16.108.158',
-  user: 'hidehiro',
+  user: 'root',
   roles: %w{web app},
   ssh_options: {
-    user: 'hidehiro', # overrides user setting above
+    user: 'root', # overrides user setting above
     keys: %w(/home/hidehiro/.ssh/id_rsa),
     forward_agent: false,
     auth_methods: %w(publickey password)
