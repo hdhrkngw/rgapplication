@@ -8,7 +8,7 @@ role :app, %w{root@160.16.108.158}
 role :web, %w{root@160.16.108.158}
 role :db,  %w{root@160.16.108.158}
 
-#set :rails_env, :production
+set :rails_env, :production
 
 #set :stage, :prodution
 #set :unicorn_rack_env, "production"
