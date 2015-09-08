@@ -4,14 +4,25 @@ lock '3.4.0'
 set :application, 'rgapplication'
 set :repo_url, 'https://github.com/hdhrkngw/rgapplication.git'
 
-set deploy_to, '/var/www/rgapplication'
+#set deploy_to, '/var/www/rgapplication'
+set :deploy_to, '/var/www/app/rgapplication'  #website-on
+
 set :scm, :git
 
 set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
+set :bundle_binstubs, nil  #website-on
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets}  #website-on
+set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }  #website-on
+
 set :keep_releases, 5
+
+namespace :deploy do  #website-on
+  after :finishing, 'deploy:cleanup'  #website-on
+end  #website-on
+
 
 #set :default_env, {
 	#rbenv_root: "/usr/local/rbenv",
@@ -20,8 +31,8 @@ set :keep_releases, 5
 
 #set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
 
-set :unicorn_rack_env, "none"
-set :unicorn_config_path, 'config/unicorn.rb'
+#set :unicorn_rack_env, "none"  #textbook-on
+#set :unicorn_config_path, 'config/unicorn.rb'  #textbook-on
 
 #after 'deploy:publishing', 'deploy:restart'
 #namespace :deploy do

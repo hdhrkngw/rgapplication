@@ -4,11 +4,21 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
+set :stage, :development  #website-on
 role :app, %w{root@160.16.108.158}
 role :web, %w{root@160.16.108.158}
 role :db,  %w{root@160.16.108.158}
 
-set :rails_env, :production
+server '160.16.108.158',   #website-on
+user: 'root',
+roles: %w{web app db},
+ssh_options: {
+ auth_methods: %w(password),
+ password: 'K7gwhdh6'
+}
+
+
+#set :rails_env, :production
 
 #set :stage, :prodution
 #set :unicorn_rack_env, "production"
@@ -34,15 +44,15 @@ set :rails_env, :production
 #  }
 # and/or per server
 
-server '160.16.108.158',
-  user: 'root',
-  roles: %w{web app},
-  ssh_options: {
-    user: 'root', # overrides user setting above
-    keys: %w(/home/hidehiro/.ssh/id_rsa),
-    forward_agent: false,
-    auth_methods: %w(publickey password)
+#server '160.16.108.158',   #textbook-on
+  #user: 'root',
+  #roles: %w{web app},
+  #ssh_options: {
+    #user: 'root', # overrides user setting above
+    #keys: %w(/home/hidehiro/.ssh/id_rsa),
+    #forward_agent: false,
+    #auth_methods: %w(publickey password)
     # password: 'please use keys'
-  }
+  #}
 
 # setting per server overrides global ssh_options

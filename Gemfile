@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rb-readline'
+
 gem 'rails_admin'
 gem "paperclip"
 gem 'jquery-ui-rails'
