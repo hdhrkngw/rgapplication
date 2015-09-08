@@ -8,27 +8,27 @@ set deploy_to, '/var/www/rgapplication'
 set :scm, :git
 
 set :format, :pretty
-set :log_level, :debug
-set :pty, true
+#set :log_level, :debug
+#set :pty, true
 
 set :keep_releases, 5
 
-set :default_env, {
-	rbenv_root: "/usr/local/rbenv",
-	path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
-}
+#set :default_env, {
+	#rbenv_root: "/usr/local/rbenv",
+	#path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
+#}
 
-set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
+#set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
 
-set :unicorn_rack_env, "none"
-set :unicorn_config_path, 'config/unicorn.rb'
+#set :unicorn_rack_env, "none"
+#set :unicorn_config_path, 'config/unicorn.rb'
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-	task :restart do
-		invoke 'unicorn:restart'
-	end
-end
+#after 'deploy:publishing', 'deploy:restart'
+#namespace :deploy do
+	#task :restart do
+		#invoke 'unicorn:restart'
+	#end
+#end
 
 
 # Default branch is :master
