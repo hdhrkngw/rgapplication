@@ -11,9 +11,9 @@ end
 
 group :development do
 	gem "capistrano", "3.4.0"
-	gem "capistrano-rails"
-	gem "capistrano-bundler"
-	gem "capistrano3-unicorn"
+	#gem "capistrano-rails"
+	#gem "capistrano-bundler"
+	#gem "capistrano3-unicorn"
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
