@@ -9,6 +9,11 @@ set :scm, :git
 
 set :keep_releases, 5
 
+set :default_env, {
+	rbenv_root: "/usr/local/rbenv",
+	path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
+}
+
 set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
 
 set :unicorn_rack_env, "none"
