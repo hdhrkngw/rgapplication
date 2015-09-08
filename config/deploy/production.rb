@@ -10,6 +10,10 @@ role :db,  %w{root@160.16.108.158}
 
 set :rails_env, :production
 
+set :stage, :prodution
+set :unicorn_rack_env, "production"
+
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
