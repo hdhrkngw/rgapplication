@@ -11,7 +11,7 @@ stderr_path "#{ROOT}/log/unicorn-stderr.log"
 
 preload_app true
 
-#GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
+GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
 
 before_fork do |server, worker|
 	defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
