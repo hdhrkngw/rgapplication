@@ -9,6 +9,19 @@ set :scm, :git
 
 set :keep_releases, 5
 
+set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids])
+
+set :unicorn_rack_env, "none"
+set :unicorn_config_path, 'config/unicorn.rb'
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+	task :restart do
+		invoke 'unicorn:restart'
+	end
+end
+
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
